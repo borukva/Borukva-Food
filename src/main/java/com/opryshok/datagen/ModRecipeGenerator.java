@@ -466,7 +466,7 @@ public class ModRecipeGenerator extends RecipeGenerator {
                 .offerTo(exporter);
 
         createShapeless(RecipeCategory.FOOD, ModItems.ONIGIRI, 1)
-                .input(ingredientFromTag(ModTags.Items.createTag("sea_lettuc")))
+                .input(ingredientFromTag(ModTags.Items.createTag("sea_lettuce")))
                 .input(ModTags.Items.CROPS_RICE)
                 .criterion(hasItem(ModItems.RICE), conditionsFromItem(ModItems.RICE))
                 .offerTo(exporter);

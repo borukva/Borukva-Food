@@ -300,14 +300,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.BREAD_SLICE, ModItems.NETHER_WHEAT, ModItems.CROISSANT);
 
         // Storage Tags
-        valueLookupBuilder(ModTags.Items.createTag("jars"))
+        valueLookupBuilder(ModTags.Items.createTag("jar"))
                 .add(ModItems.PICKLE_JAR);
         valueLookupBuilder(ModTags.Items.createTag("jars/empty"))
                 .add(ModItems.EMPTY_JAR);
 
         valueLookupBuilder(ModTags.Items.createTag("lemon")).add(ModItems.LEMON);
         valueLookupBuilder(ModTags.Items.createTag("fruits/lemon")).add(ModItems.LEMON);
-        valueLookupBuilder(ModTags.Items.createTag("avocados")).add(ModItems.AVOCADO);
+        valueLookupBuilder(ModTags.Items.createTag("avocado")).add(ModItems.AVOCADO);
         valueLookupBuilder(ModTags.Items.createTag("fruits/avocado")).add(ModItems.AVOCADO);
         valueLookupBuilder(ModTags.Items.createTag("foods/grapes")).add(ModItems.GRAPE);
         valueLookupBuilder(ModTags.Items.createTag("foods/gooseberries")).add(ModItems.GOOSEBERRY);

@@ -26,7 +26,7 @@ public class ModCommands {
     }
 
     private static int executeReloadConfigsCommand(CommandContext<ServerCommandSource> context) {
-        BorukvaFood.configInstance.loadValuesFromJson();
+        ModConfig.configInstances.get("borukva-food").loadValuesFromJson();
         context.getSource().sendFeedback(() -> Text.translatable("commands.borukva-food.config_reload"), false);
         System.out.println(ModConfig.replaceCompostOutputWithFertilizer);
         return 1;

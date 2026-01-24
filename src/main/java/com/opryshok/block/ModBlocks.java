@@ -12,6 +12,7 @@ import com.opryshok.block.crops.*;
 import com.opryshok.block.food.*;
 import com.opryshok.block.leaves.AvocadoFruitLeaves;
 import com.opryshok.block.leaves.LemonFruitLeaves;
+import com.opryshok.compat.farmersdelight.FarmersDelightCompat;
 import com.opryshok.item.ModItems;
 import com.opryshok.world.tree.ModSaplingGenerator;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
@@ -39,15 +40,14 @@ import java.util.function.Function;
 import static com.opryshok.BorukvaFood.id;
 
 public class ModBlocks {
-    // Blocks:
-    public static final Block TOMATO = registerBlock("tomato_crop", TomatoCrop::new, Block.Settings.copy(Blocks.WHEAT));
-    public static final Block CABBAGE = registerBlock("cabbage_crop", CabbageCrop::new, Block.Settings.copy(Blocks.WHEAT));
+    public static final Block TOMATO = registerConditionalBlock("tomato_crop", TomatoCrop::new, Block.Settings.copy(Blocks.WHEAT));
+    public static final Block CABBAGE = registerConditionalBlock("cabbage_crop", CabbageCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block CORN = registerBlock("corn_crop", CornCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block CHILLI_PEPPER = registerBlock("chilli_pepper_crop", ChilliPepperCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block LETTUCE = registerBlock("lettuce_crop", LettuceCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block CUCUMBER = registerBlock("cucumber_crop", CucumberCrop::new, Block.Settings.copy(Blocks.WHEAT));
-    public static final Block ONION = registerBlock("onion_crop", OnionCrop::new, Block.Settings.copy(Blocks.WHEAT));
-    public static final Block RICE = registerBlock("rice_crop", RiceCrop::new, Block.Settings.copy(Blocks.WHEAT));
+    public static final Block ONION = registerConditionalBlock("onion_crop", OnionCrop::new, Block.Settings.copy(Blocks.WHEAT));
+    public static final Block RICE = registerConditionalBlock("rice_crop", RiceCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block NETHER_WHEAT = registerBlock("nether_wheat_crop", NetherWheatCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block ENDER_INFECTED_ONION = registerBlock("ender_infected_onion", EnderInfectedOnionCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block NETHER_HAY = registerBlock("nether_hay", (settings, path) -> new PolyLogBlock(settings, path){
@@ -73,17 +73,17 @@ public class ModBlocks {
     public static final Block PAN = registerBlock("pan", Pan::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block POT = registerBlock("pot", Pot::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block CUTTING_BOARD = registerBlock("cutting_board", CuttingBoard::new, Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
-    public static final Block BEETROOT_CRATE = registerBlock("beetroot_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block CABBAGE_CRATE = registerBlock("cabbage_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block CARROT_CRATE = registerBlock("carrot_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block BEETROOT_CRATE = registerConditionalBlock("beetroot_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block CABBAGE_CRATE = registerConditionalBlock("cabbage_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block CARROT_CRATE = registerConditionalBlock("carrot_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
     public static final Block CHILLI_PEPPER_CRATE = registerBlock("chilli_pepper_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
     public static final Block CORN_CRATE = registerBlock("corn_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
     public static final Block CUCUMBER_CRATE = registerBlock("cucumber_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
     public static final Block LETTUCE_CRATE = registerBlock("lettuce_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block POTATO_CRATE = registerBlock("potato_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block TOMATO_CRATE = registerBlock("tomato_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block ONION_CRATE = registerBlock("onion_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
-    public static final Block RICE_CRATE = registerBlock("rice_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block POTATO_CRATE = registerConditionalBlock("potato_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block TOMATO_CRATE = registerConditionalBlock("tomato_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block ONION_CRATE = registerConditionalBlock("onion_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
+    public static final Block RICE_CRATE = registerConditionalBlock("rice_crate", SimplePolyBlock::new, Block.Settings.copy(Blocks.COMPOSTER));
     public static final Block BLACKCURRANTS_BUSH = registerBlock("blackcurrants_bush", BlackcurrantsBush::new, Block.Settings.copy(Blocks.SWEET_BERRY_BUSH));
     public static final Block GOOSEBERRY_BUSH = registerBlock("gooseberry_bush", GooseberryBush::new, Block.Settings.copy(Blocks.SWEET_BERRY_BUSH));
     public static final Block GRAPE = registerBlock("grape_crop", GrapeCrop::new, Block.Settings.copy(Blocks.SWEET_BERRY_BUSH));
@@ -182,22 +182,23 @@ public class ModBlocks {
             tooltip.accept(Text.translatable("tooltip.borukva-food.cutting_board_line2").formatted(Formatting.GRAY));
         }
     }, new Item.Settings());
-    public static final BlockItem BEETROOT_CRATE_ITEM = registerBlockItem("beetroot_crate", settings -> new TexturedPolyBlockItem(BEETROOT_CRATE, settings), new Item.Settings());
-    public static final BlockItem CABBAGE_CRATE_ITEM = registerBlockItem("cabbage_crate", settings -> new TexturedPolyBlockItem(CABBAGE_CRATE, settings), new Item.Settings());
-    public static final BlockItem CARROT_CRATE_ITEM = registerBlockItem("carrot_crate", settings -> new TexturedPolyBlockItem(CARROT_CRATE, settings), new Item.Settings());
+    public static final BlockItem BEETROOT_CRATE_ITEM = registerConditionalBlockItem("beetroot_crate", BEETROOT_CRATE);
+    public static final BlockItem CABBAGE_CRATE_ITEM = registerConditionalBlockItem("cabbage_crate", CABBAGE_CRATE);
+    public static final BlockItem CARROT_CRATE_ITEM = registerConditionalBlockItem("carrot_crate", CARROT_CRATE);
     public static final BlockItem CHILLI_CRATE_ITEM = registerBlockItem("chilli_pepper_crate", settings -> new TexturedPolyBlockItem(CHILLI_PEPPER_CRATE, settings), new Item.Settings());
     public static final BlockItem CORN_CRATE_ITEM = registerBlockItem("corn_crate", settings -> new TexturedPolyBlockItem(CORN_CRATE, settings), new Item.Settings());
     public static final BlockItem CUCUMBER_CRATE_ITEM = registerBlockItem("cucumber_crate", settings -> new TexturedPolyBlockItem(CUCUMBER_CRATE, settings), new Item.Settings());
     public static final BlockItem LETTUCE_CRATE_ITEM = registerBlockItem("lettuce_crate", settings -> new TexturedPolyBlockItem(LETTUCE_CRATE, settings), new Item.Settings());
-    public static final BlockItem POTATO_CRATE_ITEM = registerBlockItem("potato_crate", settings -> new TexturedPolyBlockItem(POTATO_CRATE, settings), new Item.Settings());
-    public static final BlockItem TOMATO_CRATE_ITEM = registerBlockItem("tomato_crate", settings -> new TexturedPolyBlockItem(TOMATO_CRATE, settings), new Item.Settings());
-    public static final BlockItem ONION_CRATE_ITEM = registerBlockItem("onion_crate", settings -> new TexturedPolyBlockItem(ONION_CRATE, settings), new Item.Settings());
-    public static final BlockItem RICE_CRATE_ITEM = registerBlockItem("rice_crate", settings -> new TexturedPolyBlockItem(RICE_CRATE, settings), new Item.Settings());
+    public static final BlockItem POTATO_CRATE_ITEM = registerConditionalBlockItem("potato_crate", POTATO_CRATE);
+    public static final BlockItem TOMATO_CRATE_ITEM = registerConditionalBlockItem("tomato_crate", TOMATO_CRATE);
+    public static final BlockItem ONION_CRATE_ITEM = registerConditionalBlockItem("onion_crate", ONION_CRATE);
+    public static final BlockItem RICE_CRATE_ITEM = registerConditionalBlockItem("rice_crate", RICE_CRATE);
     public static final BlockItem CHORUS_CRATE_ITEM = registerBlockItem("chorus_crate", settings -> new TexturedPolyBlockItem(CHORUS_CRATE, settings), new Item.Settings());
 
     public static void registerBlocks() {
         ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
-        builder.icon(() -> new ItemStack(ModBlocks.TOMATO_CRATE_ITEM, 1));
+        // Use non-conditional item as icon (chilli crate is always registered)
+        builder.icon(() -> new ItemStack(ModBlocks.CHILLI_CRATE_ITEM, 1));
         builder.displayName(Text.translatable("item-group.borukva-food.blocks_and_tools"));
 
         builder.entries((displayContext, entries) -> {
@@ -282,5 +283,26 @@ public class ModBlocks {
         BlockItem item = factory.apply(settings.registryKey(key).useBlockPrefixedTranslationKey());
 
         return Registry.register(Registries.ITEM, key, item);
+    }
+
+    public static Block registerConditionalBlock(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
+        if (FarmersDelightCompat.IS_LOADED) {
+            return null;
+        }
+        return registerBlock(name, factory, settings);
+    }
+
+    public static Block registerConditionalBlock(String name, BiFunction<AbstractBlock.Settings, String, Block> factory, AbstractBlock.Settings settings) {
+        if (FarmersDelightCompat.IS_LOADED) {
+            return null;
+        }
+        return registerBlock(name, factory, settings);
+    }
+
+    public static BlockItem registerConditionalBlockItem(String name, Block block) {
+        if (block == null) {
+            return null;
+        }
+        return registerBlockItem(name, settings -> new TexturedPolyBlockItem(block, settings), new Item.Settings());
     }
 }

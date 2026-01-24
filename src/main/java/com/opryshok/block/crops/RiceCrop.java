@@ -54,7 +54,7 @@ public class RiceCrop extends TomatoCrop implements TransparentPlantWatterlogged
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.RICE;
+        return ModItems.getRice();
     }
 
     @Override

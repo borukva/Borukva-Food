@@ -2,8 +2,10 @@ package com.opryshok.item;
 
 import com.opryshok.BorukvaFood;
 import com.opryshok.block.ModBlocks;
+import com.opryshok.compat.farmersdelight.FarmersDelightCompat;
 import com.opryshok.utils.ModConsumableComponents;
 import com.opryshok.utils.ModFoodComponents;
+import net.minecraft.block.Block;
 import eu.pb4.polymer.core.api.item.PolymerBlockItem;
 import eu.pb4.polymer.core.api.item.PolymerItemGroupUtils;
 import eu.pb4.polymer.core.api.item.SimplePolymerItem;
@@ -28,11 +30,11 @@ public class ModItems {
     public static Item KNIFE = registerItem("knife", KnifeTool::new);
     public static Item HARVEST_SICKLE = registerItem("harvest_sickle", HarvestSickleItem::new);
     public static Item COMPOST = registerItem("compost", CompostItem::new);
-    public static Item RICE = registerItem("rice", settings -> new PolymerBlockItem(ModBlocks.RICE, settings));
-    public static Item RICE_PANICLE = registerItem("rice_panicle", SimplePolymerItem::new);
-    public static Item RICE_BOWL = registerItem("rice_bowl", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.RICE_BOWL).useRemainder(Items.BOWL));
-    public static Item SALMON_FILLET = registerItem("salmon_fillet", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SALMON_FILLET));
-    public static Item SALMON_MAKI = registerItem("salmon_maki", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SALMON_MAKI, ModConsumableComponents.SALMON_MAKI));
+    public static Item RICE = registerConditionalBlockItem("rice", ModBlocks.RICE);
+    public static Item RICE_PANICLE = registerConditionalItem("rice_panicle", SimplePolymerItem::new);
+    public static Item RICE_BOWL = registerConditionalItem("rice_bowl", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.RICE_BOWL).useRemainder(Items.BOWL));
+    public static Item SALMON_FILLET = registerConditionalItem("salmon_fillet", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SALMON_FILLET));
+    public static Item SALMON_MAKI = registerConditionalItem("salmon_maki", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SALMON_MAKI, ModConsumableComponents.SALMON_MAKI));
     public static Item SALMON_NIGIRI = registerItem("salmon_nigiri", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SALMON_NIGIRI, ModConsumableComponents.SALMON_NIGIRI));
     public static Item SALMON_URAMAKI = registerItem("salmon_uramaki", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SALMON_URAMAKI, ModConsumableComponents.SALMON_URAMAKI));
     public static Item ONIGIRI = registerItem("onigiri", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ONIGIRI));
@@ -42,16 +44,16 @@ public class ModItems {
     public static Item SUNFLOWER_SEED = registerItem("sunflower_seed", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SUNFLOWER_SEED, ModConsumableComponents.SUNFLOWER_SEED));
     public static Item ROASTED_SUNFLOWER_SEED = registerItem("roasted_sunflower_seed", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ROASTED_SUNFLOWER_SEED, ModConsumableComponents.ROASTED_SUNFLOWER_SEED));
 
-    public static Item TOMATO_SEEDS = registerItem("tomato_seeds", settings -> new PolymerBlockItem(ModBlocks.TOMATO, settings));
-    public static Item CABBAGE_SEEDS = registerItem("cabbage_seeds", settings -> new PolymerBlockItem(ModBlocks.CABBAGE, settings));
+    public static Item TOMATO_SEEDS = registerConditionalBlockItem("tomato_seeds", ModBlocks.TOMATO);
+    public static Item CABBAGE_SEEDS = registerConditionalBlockItem("cabbage_seeds", ModBlocks.CABBAGE);
     public static Item CORN_SEEDS = registerItem("corn_seeds", settings -> new PolymerBlockItem(ModBlocks.CORN, settings));
     public static Item CHILLI_PEPPER_SEEDS = registerItem("chilli_pepper_seeds", settings -> new PolymerBlockItem(ModBlocks.CHILLI_PEPPER, settings));
     public static Item CUCUMBER_SEEDS = registerItem("cucumber_seeds", settings -> new PolymerBlockItem(ModBlocks.CUCUMBER, settings));
     public static Item LETTUCE_SEEDS = registerItem("lettuce_seeds", settings -> new PolymerBlockItem(ModBlocks.LETTUCE, settings));
-    public static Item ONION_SEEDS = registerItem("onion_seeds", settings -> new PolymerBlockItem(ModBlocks.ONION, settings));
+    public static Item ONION_SEEDS = registerConditionalBlockItem("onion_seeds", ModBlocks.ONION);
     public static Item ENDER_INFECTED_ONION_SEEDS = registerItem("ender_infected_onion_seeds", settings -> new PolymerBlockItem(ModBlocks.ENDER_INFECTED_ONION, settings));
-    public static Item TOMATO = registerItem("tomato", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.TOMATO));
-    public static Item CABBAGE = registerItem("cabbage", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CABBAGE));
+    public static Item TOMATO = registerConditionalItem("tomato", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.TOMATO));
+    public static Item CABBAGE = registerConditionalItem("cabbage", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CABBAGE));
     public static Item CHILLI_PEPPER = registerItem("chilli_pepper", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CHILLI_PEPPER, ModConsumableComponents.CHILLI_PEPPER));
     public static Item CORN = registerItem("corn", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CORN));
     public static Item CUCUMBER = registerItem("cucumber", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CUCUMBER));
@@ -59,7 +61,7 @@ public class ModItems {
     public static Item LEMON = registerItem("lemon", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.LEMON));
     public static Item BLACKCURRANTS = registerItem("blackcurrants", settings -> new PolymerBlockItem(ModBlocks.BLACKCURRANTS_BUSH, settings), new Item.Settings().food(FoodComponents.SWEET_BERRIES));
     public static Item GOOSEBERRY = registerItem("gooseberry", settings -> new PolymerBlockItem(ModBlocks.GOOSEBERRY_BUSH, settings), new Item.Settings().food(FoodComponents.SWEET_BERRIES));
-    public static Item ONION = registerItem("onion", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ONION, ModConsumableComponents.ONION));
+    public static Item ONION = registerConditionalItem("onion", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ONION, ModConsumableComponents.ONION));
     public static Item GRAPE_SAPLING = registerItem("grape_sapling", settings -> new PolymerBlockItem(ModBlocks.GRAPE, settings));
     public static Item ENDER_INFECTED_ONION = registerItem("ender_infected_onion", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ENDER_INFECTED_ONION));
     public static Item SALT = registerItem("salt", SimplePolymerItem::new);
@@ -74,7 +76,7 @@ public class ModItems {
     public static Item VEGAN_PIZZA_SLICE = registerItem("vegan_pizza_slice", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.PIZZA));
     public static Item CHOCOLATE_ICE_CREAM = registerItem("chocolate_ice_cream", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CHOCOLATE_ICE_CREAM, ModConsumableComponents.CHOCOLATE_ICE_CREAM));
     public static Item ICE_CREAM = registerItem("ice_cream", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.ICE_CREAM, ModConsumableComponents.ICE_CREAM));
-    public static Item SWEET_BERRY_COOKIE = registerItem("sweet_berry_cookie", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.COOKIE));
+    public static Item SWEET_BERRY_COOKIE = registerConditionalItem("sweet_berry_cookie", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.COOKIE));
     public static Item BLACKCURRANT_COOKIE = registerItem("blackcurrant_cookie", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.COOKIE));
     public static Item BEEF_SANDWICH = registerItem("beef_sandwich", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.BEEF_SANDWICH));
     public static Item TOMATO_SANDWICH = registerItem("tomato_sandwich", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.TOMATO_SANDWICH));
@@ -103,7 +105,7 @@ public class ModItems {
     public static Item CHEESE_POPCORN = registerItem("cheese_popcorn", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CHEESE_POPCORN));
     public static Item POPCORN = registerItem("popcorn", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.POPCORN));
     public static Item CHEESE = registerItem("cheese", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CHEESE));
-    public static Item TOMATO_SLICES = registerItem("tomato_slices", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.TOMATO_SLICES));
+    public static Item TOMATO_SLICES = registerConditionalItem("tomato_slices", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.TOMATO_SLICES));
     public static Item CUCUMBER_SLICES = registerItem("cucumber_slices", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.CUCUMBER_SLICES));
     public static Item LAVASH = registerItem("lavash", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.LAVASH));
     public static Item SHAWARMA = registerItem("shawarma", SimplePolymerItem::new, new Item.Settings().food(ModFoodComponents.SHAWARMA));
@@ -154,9 +156,80 @@ public class ModItems {
         return Registry.register(Registries.ITEM, key, item);
     }
 
+    private static Item registerConditionalItem(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
+        if (FarmersDelightCompat.IS_LOADED) {
+            return null;
+        }
+        return registerItem(name, factory, settings);
+    }
+
+    private static Item registerConditionalItem(String name, Function<Item.Settings, Item> factory) {
+        return registerConditionalItem(name, factory, new Item.Settings());
+    }
+
+    private static Item registerConditionalBlockItem(String name, Block block) {
+        if (FarmersDelightCompat.IS_LOADED) {
+            return null;
+        }
+        return registerItem(name, settings -> new PolymerBlockItem(block, settings));
+    }
+
+    public static Item getTomato() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getTomato() : TOMATO;
+    }
+
+    public static Item getTomatoSeeds() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getTomatoSeeds() : TOMATO_SEEDS;
+    }
+
+    public static Item getCabbage() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getCabbage() : CABBAGE;
+    }
+
+    public static Item getCabbageSeeds() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getCabbageSeeds() : CABBAGE_SEEDS;
+    }
+
+    public static Item getOnion() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getOnion() : ONION;
+    }
+
+    public static Item getOnionSeeds() {
+        // FD uses onion as plantable, no separate seeds
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getOnion() : ONION_SEEDS;
+    }
+
+    public static Item getRice() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getRice() : RICE;
+    }
+
+    public static Item getRicePanicle() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getRicePanicle() : RICE_PANICLE;
+    }
+
+    public static Item getRiceBowl() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getCookedRice() : RICE_BOWL;
+    }
+
+    public static Item getSweetBerryCookie() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getSweetBerryCookie() : SWEET_BERRY_COOKIE;
+    }
+
+    public static Item getSalmonFillet() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getSalmonSlice() : SALMON_FILLET;
+    }
+
+    public static Item getSalmonMaki() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getSalmonRoll() : SALMON_MAKI;
+    }
+
+    public static Item getTomatoSlices() {
+        return FarmersDelightCompat.IS_LOADED ? FarmersDelightCompat.getTomatoSauce() : TOMATO_SLICES;
+    }
+
     public static void registerModItems() {
         ItemGroup.Builder builder = PolymerItemGroupUtils.builder();
-        builder.icon(() -> new ItemStack(ModItems.TOMATO, 1));
+        builder.icon(() -> new ItemStack(ModItems.getTomato(), 1));
         builder.displayName(Text.translatable("item-group.borukva-food.items"));
 
         builder.entries((displayContext, entries) -> {

@@ -47,6 +47,9 @@ public class CompostableItems {
 
     }
     private static void put(Item item, float chance){
+        if (item == null) {
+            return;
+        }
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item, chance);
     }
 }

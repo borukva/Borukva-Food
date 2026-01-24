@@ -31,33 +31,36 @@ import java.util.List;
 
 public class ModRecipeGenerator extends RecipeGenerator {
     private final RegistryEntryLookup<Item> itemLookup;
-    protected ModRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter) {
+    private final RecipeExporter noFdExporter;
+
+    protected ModRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter, RecipeExporter noFdExporter) {
         super(registries, exporter);
         itemLookup = registries.getOrThrow(RegistryKeys.ITEM);
+        this.noFdExporter = noFdExporter;
     }
 
     @Override
     public void generate() {
-        compressBlockRecipe(ModBlocks.BEETROOT_CRATE_ITEM, Items.BEETROOT, exporter);
-        compressBlockRecipe(ModBlocks.CABBAGE_CRATE_ITEM, ModItems.CABBAGE, exporter);
-        compressBlockRecipe(ModBlocks.CARROT_CRATE_ITEM, Items.CARROT, exporter);
+        compressBlockRecipe(ModBlocks.BEETROOT_CRATE_ITEM, Items.BEETROOT, noFdExporter);
+        compressBlockRecipe(ModBlocks.CABBAGE_CRATE_ITEM, ModItems.CABBAGE, noFdExporter);
+        compressBlockRecipe(ModBlocks.CARROT_CRATE_ITEM, Items.CARROT, noFdExporter);
         compressBlockRecipe(ModBlocks.CHILLI_CRATE_ITEM, ModItems.CHILLI_PEPPER, exporter);
         compressBlockRecipe(ModBlocks.CORN_CRATE_ITEM, ModItems.CORN, exporter);
         compressBlockRecipe(ModBlocks.CUCUMBER_CRATE_ITEM, ModItems.CUCUMBER, exporter);
         compressBlockRecipe(ModBlocks.LETTUCE_CRATE_ITEM, ModItems.LETTUCE, exporter);
-        compressBlockRecipe(ModBlocks.POTATO_CRATE_ITEM, Items.POTATO, exporter);
-        compressBlockRecipe(ModBlocks.TOMATO_CRATE_ITEM, ModItems.TOMATO, exporter);
-        compressBlockRecipe(ModBlocks.ONION_CRATE_ITEM, ModItems.ONION, exporter);
-        compressBlockRecipe(ModBlocks.RICE_CRATE_ITEM, ModItems.RICE, exporter);
+        compressBlockRecipe(ModBlocks.POTATO_CRATE_ITEM, Items.POTATO, noFdExporter);
+        compressBlockRecipe(ModBlocks.TOMATO_CRATE_ITEM, ModItems.TOMATO, noFdExporter);
+        compressBlockRecipe(ModBlocks.ONION_CRATE_ITEM, ModItems.ONION, noFdExporter);
+        compressBlockRecipe(ModBlocks.RICE_CRATE_ITEM, ModItems.RICE, noFdExporter);
         compressBlockRecipe(ModBlocks.CHORUS_CRATE_ITEM, Items.CHORUS_FRUIT, exporter);
 
-        seedsRecipe(ModItems.TOMATO, ModItems.TOMATO_SEEDS, exporter);
-        seedsRecipe(ModItems.CABBAGE, ModItems.CABBAGE_SEEDS, exporter);
+        seedsRecipe(ModItems.TOMATO, ModItems.TOMATO_SEEDS, noFdExporter);
+        seedsRecipe(ModItems.CABBAGE, ModItems.CABBAGE_SEEDS, noFdExporter);
         seedsRecipe(ModItems.CHILLI_PEPPER, ModItems.CHILLI_PEPPER_SEEDS, exporter);
         seedsRecipe(ModItems.CORN, ModItems.CORN_SEEDS, exporter);
         seedsRecipe(ModItems.CUCUMBER, ModItems.CUCUMBER_SEEDS, exporter);
         seedsRecipe(ModItems.LETTUCE, ModItems.LETTUCE_SEEDS, exporter);
-        seedsRecipe(ModItems.ONION, ModItems.ONION_SEEDS, exporter);
+        seedsRecipe(ModItems.ONION, ModItems.ONION_SEEDS, noFdExporter);
 
         offerSmelting(List.of(ModItems.HOGLIN_MEAT), RecipeCategory.FOOD, ModItems.COOKED_HOGLIN_MEAT, 0.35f, 200, "cooked_hoglin_meat");
         offerSmelting(List.of(ModItems.BEEF_SLICES), RecipeCategory.FOOD, ModItems.COOKED_BEEF_SLICES, 0.35f, 200, "cooked_beef_slices");

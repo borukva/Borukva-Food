@@ -2,6 +2,7 @@ package com.opryshok.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.registry.RegistryWrapper;
@@ -15,7 +16,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registryLookup, RecipeExporter exporter) {
-        return new ModRecipeGenerator(registryLookup, exporter);
+        RecipeExporter noFdExporter = withConditions(exporter, ResourceConditions.not(ResourceConditions.allModsLoaded("farmersdelight")));
+        return new ModRecipeGenerator(registryLookup, exporter, noFdExporter);
     }
 
     @Override

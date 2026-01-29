@@ -11,6 +11,7 @@ import com.opryshok.block.cooking.Stove;
 import com.opryshok.block.crops.*;
 import com.opryshok.block.food.*;
 import com.opryshok.commands.ModCommands;
+import com.opryshok.compat.farmersdelight.FarmersDelightCompat;
 import com.opryshok.config.ModConfig;
 import com.opryshok.entity.ModEntities;
 import com.opryshok.item.CompostItem;
@@ -40,6 +41,9 @@ public class BorukvaFood implements ModInitializer {
 	@Override
 	public void onInitialize() {
         ModConfig.init(MOD_ID, ModConfig.class);
+
+		// Register Farmer's Delight compatibility aliases early
+		FarmersDelightCompat.registerAliases();
 
 		ModCommands.register();
 		ModItems.registerModItems();

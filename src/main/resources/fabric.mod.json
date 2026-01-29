@@ -33,6 +33,6 @@
 		"polymer-core": ">=0.14.3"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"farmersdelight": "*"
 	}
 }

@@ -1,6 +1,1 @@
-{
-  "model": {
-    "type": "minecraft:model",
-    "model": "borukva-food:item/tomato_seeds"
-  }
-}
+{"model":{"model":"borukva-food:item/tomato_seeds","type":"minecraft:model"}}

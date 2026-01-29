@@ -60,7 +60,7 @@ public class TomatoCrop extends CropBlock implements FactoryBlock, TransparentPl
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.TOMATO_SEEDS;
+        return ModItems.getTomatoSeeds();
     }
 
     @Override

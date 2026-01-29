@@ -21,7 +21,7 @@ public class CabbageCrop extends TomatoCrop {
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.CABBAGE_SEEDS;
+        return ModItems.getCabbageSeeds();
     }
 
     @Override

@@ -21,7 +21,7 @@ public class OnionCrop extends TomatoCrop{
     }
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.ONION_SEEDS;
+        return ModItems.getOnionSeeds();
     }
 
     @Override

@@ -40,14 +40,14 @@ import java.util.function.Function;
 import static com.opryshok.BorukvaFood.id;
 
 public class ModBlocks {
-    public static final Block TOMATO = registerConditionalBlock("tomato_crop", TomatoCrop::new, Block.Settings.copy(Blocks.WHEAT));
-    public static final Block CABBAGE = registerConditionalBlock("cabbage_crop", CabbageCrop::new, Block.Settings.copy(Blocks.WHEAT));
+    public static final Block TOMATO = registerBlock("tomato_crop", TomatoCrop::new, Block.Settings.copy(Blocks.WHEAT));
+    public static final Block CABBAGE = registerBlock("cabbage_crop", CabbageCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block CORN = registerBlock("corn_crop", CornCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block CHILLI_PEPPER = registerBlock("chilli_pepper_crop", ChilliPepperCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block LETTUCE = registerBlock("lettuce_crop", LettuceCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block CUCUMBER = registerBlock("cucumber_crop", CucumberCrop::new, Block.Settings.copy(Blocks.WHEAT));
-    public static final Block ONION = registerConditionalBlock("onion_crop", OnionCrop::new, Block.Settings.copy(Blocks.WHEAT));
-    public static final Block RICE = registerConditionalBlock("rice_crop", RiceCrop::new, Block.Settings.copy(Blocks.WHEAT));
+    public static final Block ONION = registerBlock("onion_crop", OnionCrop::new, Block.Settings.copy(Blocks.WHEAT));
+    public static final Block RICE = registerBlock("rice_crop", RiceCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block NETHER_WHEAT = registerBlock("nether_wheat_crop", NetherWheatCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block ENDER_INFECTED_ONION = registerBlock("ender_infected_onion", EnderInfectedOnionCrop::new, Block.Settings.copy(Blocks.WHEAT));
     public static final Block NETHER_HAY = registerBlock("nether_hay", (settings, path) -> new PolyLogBlock(settings, path){

@@ -40,10 +40,6 @@ public class FarmersDelightCompat {
         registerBlockAlias("beetroot_crate", "beetroot_crate");
         registerBlockAlias("rice_crate", "rice_bale");
 
-        // Note: Crop block aliases are NOT registered because FD uses different block names
-        // and mechanics (e.g., FD uses "tomatoes"/"budding_tomatoes", not "tomato_crop").
-        // Existing planted crops will need to be replanted when migrating to FD.
-
         BorukvaFood.LOGGER.info("Farmer's Delight compatibility aliases registered successfully");
     }
 

@@ -32,6 +32,14 @@ public class FarmersDelightCompat {
         registerItemAlias("salmon_maki", "salmon_roll");
         registerItemAlias("tomato_slices", "tomato_sauce");
 
+        registerItemAlias("tomato_crate", "tomato_crate");
+        registerItemAlias("cabbage_crate", "cabbage_crate");
+        registerItemAlias("carrot_crate", "carrot_crate");
+        registerItemAlias("onion_crate", "onion_crate");
+        registerItemAlias("potato_crate", "potato_crate");
+        registerItemAlias("beetroot_crate", "beetroot_crate");
+        registerItemAlias("rice_crate", "rice_bale");
+
         registerBlockAlias("tomato_crate", "tomato_crate");
         registerBlockAlias("cabbage_crate", "cabbage_crate");
         registerBlockAlias("carrot_crate", "carrot_crate");

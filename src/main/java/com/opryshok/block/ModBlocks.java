@@ -210,7 +210,6 @@ public class ModBlocks {
                 entries.add(RICE_CRATE_ITEM);
                 entries.add(POTATO_CRATE_ITEM);
                 entries.add(BEETROOT_CRATE_ITEM);
-                entries.add(CABBAGE_CRATE_ITEM);
                 entries.add(STOVE_ITEM);
                 entries.add(PAN_ITEM);
                 entries.add(POT_ITEM);

@@ -105,7 +105,7 @@ public class ModBlocks {
     public static final Block LEMON_FENCE_GATE = registerBlock("lemon_fence_gate", settings -> new PolyFenceGateBlock(WoodType.OAK, settings, Blocks.OAK_FENCE_GATE), Block.Settings.copy(Blocks.OAK_FENCE_GATE));
     public static final Block LEMON_BUTTON = registerBlock("lemon_button", settings -> new PolyButtonBlock(BlockSetType.OAK, 30, settings, Blocks.OAK_BUTTON), Block.Settings.copy(Blocks.OAK_BUTTON));
     public static final Block LEMON_PRESSURE_PLATE = registerBlock("lemon_pressure_plate", settings -> new PolyPressurePlate(BlockSetType.OAK, settings, Blocks.OAK_PRESSURE_PLATE), Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
-    public static final Block LEMON_SLAB = registerBlock("lemon_slab", settings -> new PolySlabBlock(settings, "lemon_slab", LEMON_PLANKS.getDefaultState()), Block.Settings.copy(Blocks.OAK_SLAB));
+    public static final Block LEMON_SLAB = registerBlock("lemon_slab", PolySlabBlock::new, Block.Settings.copy(Blocks.OAK_SLAB));
     public static final Block LEMON_TRAPDOOR = registerBlock("lemon_trapdoor", PolyTrapdoorBlock::new, Block.Settings.copy(Blocks.OAK_TRAPDOOR));
     public static final Block LEMON_SAPLING = registerBlock("lemon_sapling", settings -> new PolySaplingBlock(ModSaplingGenerator.LEMON, settings, "lemon_sapling"), Block.Settings.copy(Blocks.OAK_SAPLING));
     public static final Block LEMON_DOOR = registerBlock("lemon_door", PolyDoorBlock::new, Block.Settings.copy(Blocks.OAK_DOOR));
@@ -123,7 +123,7 @@ public class ModBlocks {
     public static final Block AVOCADO_PRESSURE_PLATE = registerBlock("avocado_pressure_plate", settings -> new PolyPressurePlate(BlockSetType.OAK, settings, Blocks.OAK_PRESSURE_PLATE), Block.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static final Block AVOCADO_TRAPDOOR = registerBlock("avocado_trapdoor", PolyTrapdoorBlock::new, Block.Settings.copy(Blocks.OAK_TRAPDOOR));
     public static final Block AVOCADO_DOOR = registerBlock("avocado_door", PolyDoorBlock::new, Block.Settings.copy(Blocks.OAK_DOOR));
-    public static final Block AVOCADO_SLAB = registerBlock("avocado_slab", settings -> new PolySlabBlock(settings, "avocado_slab", AVOCADO_PLANKS.getDefaultState()), Block.Settings.copy(Blocks.OAK_SLAB));
+    public static final Block AVOCADO_SLAB = registerBlock("avocado_slab", PolySlabBlock::new, Block.Settings.copy(Blocks.OAK_SLAB));
     public static final Block AVOCADO_SAPLING = registerBlock("avocado_sapling", settings -> new PolySaplingBlock(ModSaplingGenerator.AVOCADO, settings, "avocado_sapling"), Block.Settings.copy(Blocks.OAK_SAPLING));
     public static final Block CHOCOLATE_CAKE = registerBlock("chocolate_cake", ChocolateCake::new, Block.Settings.copy(Blocks.CAKE));
     public static final Block HONEY_CAKE = registerBlock("honey_cake", HoneyCake::new, Block.Settings.copy(Blocks.CAKE));
